@@ -1,16 +1,13 @@
-FROM python:3.8
+FROM node:alpine
 
-# set a directory for the app
 WORKDIR /usr/src/app
 
-# copy all the files to the container
-COPY . .
+COPY . /usr/src/app
 
-# install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN npm install -g @angular/cli
 
-# tell the port number the container should expose
-EXPOSE 5000
+WORKDIR /usr/src/app/angular-bird/wsu-hw-ng-main
 
-# run the command
-CMD ["python", "./app.py"]
+RUN npm install
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]
