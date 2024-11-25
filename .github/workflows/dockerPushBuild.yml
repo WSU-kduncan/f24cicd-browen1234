@@ -23,5 +23,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: ./flask-app
           push: true
           tags: braaksmao/braaksma-ceg3120:latest
