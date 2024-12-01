@@ -19,3 +19,7 @@ On DockerHub I was able to go to my settings and create a Read & Write token for
 I was able to configure GitHub secrets and made sure to get my DockerHub user name and token as a secret so when I used the workflow it was able to log in and read the read and write contents. 
 
 The work flow was very simple, all it did was build some software and then login into DockerHub with the creditials I gave it. Then when I gave it context based on my file system set up it was able to build and push a new latest image to the DockerHub repo.
+
+## Diagram for Project 4
+What is happening here is that the developer will build their image then push their contents into GitHub. GitHub will then use the actions and workflows to push to DockerHub. Here the image will be up to date. Then if someone wanted to use my image they could pull from DockerHub since it is a public repository. 
+!['Diagram'](/diagramP4.png)
