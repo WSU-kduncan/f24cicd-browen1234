@@ -99,6 +99,8 @@ Semantic Versioning was not working. I troubleshooted for a good 5 hours and cou
 
 So with Semantic Versioning not fully working I am unable to get mutiple versions of my DockerHub image. But I do like to think that I understand how everything works way better than when I started the project. Unfortunately I can't seem to understand how to make it work. I even changed it back and fourth 3 times. 
 
+Before recording lots of stuff stopped working after I was messing with hook files but I have screenshots so hopefully that shows that the hooks were working when running -verbose.
+
 
 ## Resources
 
