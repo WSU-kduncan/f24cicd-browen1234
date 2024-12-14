@@ -106,3 +106,4 @@ Before recording lots of stuff stopped working after I was messing with hook fil
 
 https://github.com/adnanh/webhook/blob/master/README.md
 https://docs.docker.com/engine/install/ubuntu/
+ChatGPT Used to help me find niche commands for markdown and some git formatting.
