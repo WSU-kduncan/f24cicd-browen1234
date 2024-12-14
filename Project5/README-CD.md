@@ -55,7 +55,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 ### Using the bash script
 The purpose of the bash script is to stop and remove an existing image and then replace it with the latest version of that image. Inside the script I used basic docker commands that get ran whenever the script is called for. The script is located in ubuntu/home/
 
-[DEPLOYMENT FOLDER](/deployment/)
+[DEPLOYMENT FOLDER](/Project5/deployment/)
 
 ### Installing adnahn's Webhook on the Instance
 Installing adnahn's Webhook was used to be able to receive request and the perform tasks asked by the me, the devloper. Installing the webhook was very simple and easy. I then used systemctl to make sure the webhook was installed correctly. Commands used: 
@@ -78,7 +78,7 @@ This can be tested when calling the oatmeal hook and I have added a screenshot b
 ### Configuring DockerHub to Message the Listener
 In DockerHub I have two different Webhooks set to activate when Dockerhub detacts a change in the image. 
 
-Add DockerHub webhooks
+![dockerwebhooks](DockerHubWebhooks.png)
 
 ### Modifying the Webhook to Listen on System Boot
 I changed my hooks.json file and added a part at the bottom that allows for the system to start to listen. 
@@ -88,9 +88,16 @@ I changed my hooks.json file and added a part at the bottom that allows for the 
 
 ### Here are my diagram of the deployment process 
 
+![Project 5 Diagram](p5diagram)
+
+Over all what is happening is the devloper is pushing a change to GitHub. That will trigger a GitHub Action and Workflow that will take the tag version and push that new image to DockerHub. This will add a new tagged version and a latest version. DockerHub the activates one of its webhooks then the listening webhook on the instance will trigger. This will then run the bash script that will display the newly updated Docker image on the instance. Then the devloper can load the url of the instance and see their accomplished work. 
 
 ## Where I Failed
-Semantic Versioning was not working. I troubleshooted for a good 5 hours and couldn't get anywhere. I went through lectures websites, even tested chatGPTs mind but nothing worked. The closest I got broke my other workflow and I'm unsure how that even works.
+Semantic Versioning was not working. I troubleshooted for a good 5 hours and couldn't get anywhere. I went through lectures websites, even tested chatGPTs mind but nothing worked. The closest I got broke my other workflow and I'm unsure how that even works. I have a screenshot of when it was working and I will add a failed folder in Project 5 with the text file inside that has the copied code within. Not sure if you will give points but here is what I had.
+
+![Working SemVer](workingDockerPushPull.png)
+
+So with Semantic Versioning not fully working I am unable to get mutiple versions of my DockerHub image. But I do like to think that I understand how everything works way better than when I started the project. Unfortunately I can't seem to understand how to make it work. 
 
 
 ## Resources
