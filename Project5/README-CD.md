@@ -7,17 +7,24 @@
 
 
 ### Description
-For this project
+This project the goal was to be able to use semantic versioning for images and webhooks to automatically tag the developers updates for them. This way the developer doesn't have to go through and tag every single thing along with make sure all the pushed data is done correctly. 
 
 
 ### Generate and Push Tags
+After you commit a new changes to your git repo, it should be tagged. This done by doing specfic tagging commands through git. Below I will list the order on how I did my tags, once I figured out the proper why to do them.
 
+git tag -a v1.1.1 -m "Version 1.1.1 New Patch"
+git push origin main
+git push origin v1.1.1
+
+
+It is better to be safe and be more complex than to miss something, that is why I have some extra text rather than just the essentials needed.
 
 ### Behavior of GitHub Workflow
-
+Whenever there is a push to the main branch gitHub will take the update the image on DockerHub. This is done through the GitHub action that was set up during Project 4. 
 ### DockerHub Repo Link
 
-
+https://hub.docker.com/repository/docker/braaksmao/braaksma-ceg3120/general
 
 ## Part 2: Deployment
 
@@ -31,17 +38,17 @@ Installing docker using the command line for the instance was a several step pro
 
 Here are the commands I used in order:
 
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+- sudo apt update
+- sudo apt upgrade -y
+- sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-docker --version
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo usermod -aG docker $USER
+- sudo apt update
+- sudo apt install -y docker-ce docker-ce-cli containerd.io
+- docker --version
+- sudo systemctl start docker
+- sudo systemctl enable docker
+- sudo usermod -aG docker $USER
 
 
 
@@ -61,14 +68,20 @@ Within the Webhook theres an ID that when called when the hook is running will e
 ADD LINK TO DEPLOYMENT FOLDER
 
 ### Starting the Webhook
+The webhook is started by running it in the instance. It will then listen for the jazz or oatmeal hook to be called. 
 
 ### Testing the Listner on the Webhook
+This can be tested when calling the oatmeal hook and I have added a screenshot below. 
 
-### Configuring GitHub to Message the Listener
+Add oatmeal listen SC
+
+### Configuring DockerHub to Message the Listener
+In DockerHub I have two different Webhooks set to activate when Dockerhub detacts a change in the image. 
+
+Add DockerHub webhooks
 
 ### Modifying the Webhook to Listen on System Boot
-
-### Add webhook to a folder called deployment
+I changed my hooks.json file and added a part at the bottom that allows for the system to start to listen. 
 
 
 ## Part 3: Diagramming
