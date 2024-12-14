@@ -55,7 +55,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 ### Using the bash script
 The purpose of the bash script is to stop and remove an existing image and then replace it with the latest version of that image. Inside the script I used basic docker commands that get ran whenever the script is called for. The script is located in ubuntu/home/
 
-ADD LINK TO DEPLOYMENT FOLDER
+[DEPLOYMENT FOLDER](/deployment/)
 
 ### Installing adnahn's Webhook on the Instance
 Installing adnahn's Webhook was used to be able to receive request and the perform tasks asked by the me, the devloper. Installing the webhook was very simple and easy. I then used systemctl to make sure the webhook was installed correctly. Commands used: 
@@ -65,7 +65,7 @@ systemctl status webhook
 ### Explanation of the Contents of the Webhook
 Within the Webhook theres an ID that when called when the hook is running will execute a command. The command that it is set to is the bash script that we wrote that is talked about above. Also within the is a trigger rule that activates when it sees the latest tag on DockerHub. This file is located in the same spot as the bash script at /home/ubuntu.
 
-ADD LINK TO DEPLOYMENT FOLDER
+[DEPLOYMENT FOLDER](/deployment/)
 
 ### Starting the Webhook
 The webhook is started by running it in the instance. It will then listen for the jazz or oatmeal hook to be called. 
@@ -73,7 +73,7 @@ The webhook is started by running it in the instance. It will then listen for th
 ### Testing the Listner on the Webhook
 This can be tested when calling the oatmeal hook and I have added a screenshot below. 
 
-Add oatmeal listen SC
+![oatmealSC](oatmealSC.png)
 
 ### Configuring DockerHub to Message the Listener
 In DockerHub I have two different Webhooks set to activate when Dockerhub detacts a change in the image. 
@@ -86,7 +86,11 @@ I changed my hooks.json file and added a part at the bottom that allows for the 
 
 ## Part 3: Diagramming
 
-### Here are my diagrams of the deployment process 
+### Here are my diagram of the deployment process 
+
+
+## Where I Failed
+Semantic Versioning was not working. I troubleshooted for a good 5 hours and couldn't get anywhere. I went through lectures websites, even tested chatGPTs mind but nothing worked. The closest I got broke my other workflow and I'm unsure how that even works.
 
 
 ## Resources
