@@ -33,4 +33,17 @@
     "command-working-directory": "/home/ubuntu",
     "trigger-rule": {
       "and": [
-       
+        {
+          "match": {
+            "type": "value",
+            "value": "startup",
+            "parameter": {
+              "source": "instance",
+              "name": "status"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
