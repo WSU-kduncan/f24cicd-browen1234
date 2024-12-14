@@ -1,0 +1,36 @@
+[
+  {
+    "id": "oatmeal",
+    "execute-command": "/home/ubuntu/refresh.sh",
+    "command-working-directory": "/home/ubuntu"
+  },
+  {
+    "id": "jazz",
+    "execute-command": "home/ubuntu/refresh.sh",
+    "pass-arguments-to-command": [
+      {
+        "source": "entire-payload"
+      }
+    ],
+    "trigger-rule": {
+      "and": [
+        {
+          "match": {
+            "type": "value",
+            "value": "latest",
+            "parameter": {
+              "source": "payload",
+              "name": "push_data.tag"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "startup-webhook",
+    "execute-command": "/home/ubuntu/refresh.sh",
+    "command-working-directory": "/home/ubuntu",
+    "trigger-rule": {
+      "and": [
+       
